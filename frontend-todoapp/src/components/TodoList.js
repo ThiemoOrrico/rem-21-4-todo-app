@@ -1,27 +1,27 @@
 import TodoItem from "./TodoItem";
-//import styled from "styled-components";
+import styled from "styled-components";
 import "./TodoList.css"
 
 
-export default function TodoList() {
+export default function TodoList({todos}) {
+
+    console.log(todos);
+
     return (
 
-            <ul class="todo-list">
+            <List className="todo-list">
 
-
-                <TodoItem />
-                <TodoItem />
-                <TodoItem />
-
-
-
-            </ul>
+                {
+                todos.map( todo => <TodoItem key={todo.id} todoItem={todo}/>)
+                }
+            </List>
 
     )
 }
 
-/*
-const TodoListContent = styled.ul`
+
+const List = styled.ul`
     border: 1px solid;
-    border-radius: 2px;
-`*/
+    border-radius: 5px;
+    background: yellowgreen;
+`
